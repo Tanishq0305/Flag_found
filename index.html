@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>CTF</title>
+  <link rel="stylesheet" href="login-page.css">
+  <script src="md5.min.js"></script>
+  
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 style="font-family: 'Cinzel', serif;" id="login-header">VishwaCTF</h1>
+    <img src="https://ctftime.org/media/cache/2b/41/2b4108ce51ae0c808cd90dcda342e159.png" alt="Vishwa CTF">
+    
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    
+    <form id="login-form">
+     
+
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="Login" id="login-form-submit">
+      <script>const loginForm = document.getElementById("login-form");
+        const loginButton = document.getElementById("login-form-submit");
+        const loginErrorMsg = document.getElementById("login-error-msg");
+        
+        // var passHash = md5("password");
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        loginButton.addEventListener("click", (e) => {
+            var passHash = md5("vishwaCTF{flag_found}");
+            e.preventDefault();
+            const username = loginForm.username.value;
+            const password = loginForm.password.value;
+        
+            if (username === "admin" && password === passHash) {
+                window.location.href = "patricia13edwew.html";
+                // location.reload();
+            } else {
+                loginErrorMsg.style.opacity = 1;
+            }
+        })</script>
+    </form>
+   
+  </main>
+
+</body>
+
+</html>
